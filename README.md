@@ -1,17 +1,56 @@
 # LaravelProjectsByBinaryFolks
 
-Route::get('/posts/{post}',function($post))
+//web.php
+
+Route::get('/','SiteController@Home');
+
+Route::get('/','SiteController@About');
+
+
+Route::get('/','SiteController@Contact');
+
+
+# view
+
+# HomePAge.blade.php
+<h1> This is Home Page </h1>
+
+# AboutPage.blade.php
+<h1> This is Home Page </h1>
+
+# ContactPage.blade.php
+<h1> This is Home Page </h1>
+
+# SiteController.php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+
+class SiteController extends Controller
 {
-	$posts=[
-		'First post'=>'Hello';
-		'Second post'=>'New i am getting';
-
-		if(! array_key_exists($post, $posts)){
-			abort(404,'Sorry wrong req');
-
-		}
-		return view('post';['post'=>$posts[$post]]);
-	})
-		}
-	]
+    function Home()
+    {
+    	return view('HomePage');
+	
+    }
+        function About()
+    {
+    	return view('AboutPage');
+	
+    }
+        function Contact()
+    {
+    	return view('ContactPage');
+	
+    }
 }
+
+
+
+
+
+
