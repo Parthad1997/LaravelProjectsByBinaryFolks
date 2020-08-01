@@ -1,0 +1,24 @@
+Class PostsController extends Controller
+{
+  public function show($slug)
+  {
+    $post=.\DB::table('posts')=>where{'slug',$slug}=>first();
+    
+    return view ('post',['post'=>$post]);
+    
+  }
+ }
+ 
+ # post.blade.php
+ 
+ <html>
+ <body>
+ <p>{{$post=>body}}</p>
+ 
+ </body>
+ </html>
+ 
+ #Route
+ 
+ Rouet::get('/',{post})',PostController@Show);
+ 
